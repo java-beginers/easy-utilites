@@ -11,11 +11,17 @@ import static org.junit.Assert.*;
 public class BooleanUtilsTest {
 
     @Test
-    public void testConvertToBoolean() {
+    public void testTrueConvertToBoolean() {
         assertTrue(BooleanUtils.convertToBoolean("1"));
+        assertTrue(BooleanUtils.convertToBoolean("True"));
+    }
+
+    @Test
+    public void testFalseConvertToBoolean() {
         assertFalse(BooleanUtils.convertToBoolean("0"));
         assertFalse(BooleanUtils.convertToBoolean("False"));
         assertFalse(BooleanUtils.convertToBoolean("bla bla"));
+        assertFalse(BooleanUtils.convertToBoolean(""));
     }
 
 }

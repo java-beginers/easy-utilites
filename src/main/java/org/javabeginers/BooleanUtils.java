@@ -3,12 +3,22 @@ package main.java.org.javabeginers;
 /**
  * Класс утилит для работы с логическим типом данных.
  */
+
+
 public class BooleanUtils {
-    public static boolean convertToBoolean(String value) {
+    static String TrueArray[] = {"1", "true", "yes", "on"};
+    public static boolean convertToBoolean(Object value) {
         boolean returnValue = false;
-        if ("1".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value) ||
-                "true".equalsIgnoreCase(value) || "on".equalsIgnoreCase(value))
-            returnValue = true;
+        if (value == null) {
+            return false;
+        }
+        String objvalue = (String) value;
+        for(int i = 0; i < TrueArray.length; i++) {
+            if(objvalue.equalsIgnoreCase(TrueArray[i])) {
+                returnValue = true;
+                break;
+            }
+        }
         return returnValue;
     }
 
