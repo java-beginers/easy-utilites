@@ -1,5 +1,6 @@
-package org.javabeginers;
+package test.java.org.javabeginers;
 
+import main.java.org.javabeginers.BooleanUtils;
 import org.junit.Test;
 
 import java.math.BigDecimal;
