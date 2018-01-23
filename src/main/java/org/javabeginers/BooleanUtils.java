@@ -8,10 +8,6 @@ package main.java.org.javabeginers;
 public class BooleanUtils {
     static String TrueArray[] = {"1", "true", "yes", "on"};
 
-    public static boolean convertToLong(Object cvalue) {
-        return (boolean) cvalue;
-    }
-
     public static boolean convertToBoolean(Object value) {
         boolean returnValue = false;
         String objvalue = value.toString();
