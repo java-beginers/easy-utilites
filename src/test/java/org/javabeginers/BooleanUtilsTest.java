@@ -1,6 +1,5 @@
-package test.java.org.javabeginers;
+package org.javabeginers;
 
-import main.java.org.javabeginers.BooleanUtils;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -21,49 +20,50 @@ public class BooleanUtilsTest {
         String[] testValues = new String[] {
                 "1", "True", "true", "TRUE", "yes", "YES", "Yes", "t", "T", "y", "Y"};
         for (String value : testValues) {
-            assertTrue(BooleanUtils.convertToBoolean(value));
+            assertTrue(BooleanUtils.toBoolean(value));
         }
     }
 
 
     @Test
     public void testConvertToBooleanFromBoolean() {
-        assertTrue(BooleanUtils.convertToBoolean(Boolean.TRUE));
-        assertFalse(BooleanUtils.convertToBoolean(Boolean.FALSE));
+        assertTrue(BooleanUtils.toBoolean(Boolean.TRUE));
+        assertFalse(BooleanUtils.toBoolean(Boolean.FALSE));
     }
 
 
     @Test
     public void testConvertToBooleanFromInteger() {
-        assertTrue(BooleanUtils.convertToBoolean(1));
-        assertTrue(BooleanUtils.convertToBoolean(-1));
-        assertFalse(BooleanUtils.convertToBoolean(0));
+        assertTrue(BooleanUtils.toBoolean(1));
+        assertTrue(BooleanUtils.toBoolean(-1));
+        assertFalse(BooleanUtils.toBoolean(0));
     }
 
 
     @Test
     public void testConvertToBooleanFromLong() {
-        assertTrue(BooleanUtils.convertToBoolean(1L));
-        assertTrue(BooleanUtils.convertToBoolean(-1L));
-        assertFalse(BooleanUtils.convertToBoolean(0L));
+        assertTrue(BooleanUtils.toBoolean(1L));
+        assertTrue(BooleanUtils.toBoolean(-1L));
+        assertFalse(BooleanUtils.toBoolean(0L));
     }
 
 
     @Test
     public void testConvertToBooleanFromOtherObjects() {
-        assertFalse(BooleanUtils.convertToBoolean(new LinkedList<String>()));
-        assertFalse(BooleanUtils.convertToBoolean(new Date()));
-        assertFalse(BooleanUtils.convertToBoolean(new HashMap<String, String>()));
-        assertFalse(BooleanUtils.convertToBoolean(new BigDecimal(3.14f)));
+        assertFalse(BooleanUtils.toBoolean(new LinkedList<String>()));
+        assertFalse(BooleanUtils.toBoolean(new Date()));
+        assertFalse(BooleanUtils.toBoolean(new HashMap<String, String>()));
+        assertTrue(BooleanUtils.toBoolean(new BigDecimal(3.14f)));
+        assertTrue(BooleanUtils.toBoolean(new BigDecimal(.00001f)));
     }
 
 
     @Test
     public void testFalseConvertToBooleanFromString() {
-        assertFalse(BooleanUtils.convertToBoolean("0"));
-        assertFalse(BooleanUtils.convertToBoolean("False"));
-        assertFalse(BooleanUtils.convertToBoolean("bla bla"));
-        assertFalse(BooleanUtils.convertToBoolean(""));
+        assertFalse(BooleanUtils.toBoolean("0"));
+        assertFalse(BooleanUtils.toBoolean("False"));
+        assertFalse(BooleanUtils.toBoolean("bla bla"));
+        assertFalse(BooleanUtils.toBoolean(""));
     }
 
 }
